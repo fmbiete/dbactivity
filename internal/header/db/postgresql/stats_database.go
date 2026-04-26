@@ -6,7 +6,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/fmbiete/db_activity/internal/header/db"
+	"github.com/fmbiete/dbactivity/internal/header/db"
 )
 
 func (p *PostgreSQL) StatsDatabase(ctx context.Context, stats *db.Stats) error {

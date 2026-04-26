@@ -5,7 +5,7 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
-	"github.com/fmbiete/db_activity/internal/footer"
+	"github.com/fmbiete/dbactivity/internal/footer"
 )
 
 func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {

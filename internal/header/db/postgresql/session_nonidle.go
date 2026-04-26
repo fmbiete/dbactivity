@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fmbiete/db_activity/internal/header/db/os"
+	"github.com/fmbiete/dbactivity/internal/header/db/os"
 )
 
 func (p *PostgreSQL) SessionsNonIdle(ctx context.Context) ([][]string, error) {

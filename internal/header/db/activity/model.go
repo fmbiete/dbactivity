@@ -1,6 +1,6 @@
 package activity
 
-import "github.com/fmbiete/db_activity/internal/header/base"
+import "github.com/fmbiete/dbactivity/internal/header/base"
 
 type Activity struct {
 	*base.Base

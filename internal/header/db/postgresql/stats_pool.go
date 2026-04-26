@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"log"
 
-	"github.com/fmbiete/db_activity/internal/header/db"
+	"github.com/fmbiete/dbactivity/internal/header/db"
 )
 
 func (p *PostgreSQL) StatsPool(ctx context.Context, stats *db.Stats) error {

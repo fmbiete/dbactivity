@@ -2,7 +2,7 @@ package table
 
 import (
 	"charm.land/lipgloss/v2"
-	"github.com/fmbiete/db_activity/internal/styles"
+	"github.com/fmbiete/dbactivity/internal/styles"
 )
 
 func (t *Table) RenderRowAsModal(height, footerHeight, width int) string {

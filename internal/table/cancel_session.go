@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/fmbiete/db_activity/internal/header/db/postgresql"
+	"github.com/fmbiete/dbactivity/internal/header/db/postgresql"
 )
 
 func (t *Table) CancelSession() error {

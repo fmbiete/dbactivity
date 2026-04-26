@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"charm.land/lipgloss/v2"
-	"github.com/fmbiete/db_activity/internal/header/db"
+	"github.com/fmbiete/dbactivity/internal/header/db"
 )
 
 func (p *POOL) Render(stats db.Stats) string {

@@ -4,7 +4,7 @@ import (
 	"charm.land/bubbles/v2/table"
 	tea_table "charm.land/bubbles/v2/table"
 	"charm.land/lipgloss/v2"
-	"github.com/fmbiete/db_activity/internal/styles"
+	"github.com/fmbiete/dbactivity/internal/styles"
 )
 
 type Table struct {

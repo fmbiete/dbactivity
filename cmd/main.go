@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/fmbiete/db_activity/internal"
-	"github.com/fmbiete/db_activity/internal/logger"
+	"github.com/fmbiete/dbactivity/internal"
+	"github.com/fmbiete/dbactivity/internal/logger"
 
 	tea "charm.land/bubbletea/v2"
 )

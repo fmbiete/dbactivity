@@ -1,9 +1,9 @@
 package ionet
 
 import (
-	"github.com/fmbiete/db_activity/internal/header/base"
-	"github.com/fmbiete/db_activity/internal/header/io"
-	"github.com/fmbiete/db_activity/internal/header/net"
+	"github.com/fmbiete/dbactivity/internal/header/base"
+	"github.com/fmbiete/dbactivity/internal/header/io"
+	"github.com/fmbiete/dbactivity/internal/header/net"
 )
 
 type IONET struct {

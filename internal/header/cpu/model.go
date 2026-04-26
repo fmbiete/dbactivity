@@ -3,7 +3,7 @@ package cpu
 import (
 	"time"
 
-	"github.com/fmbiete/db_activity/internal/header/base"
+	"github.com/fmbiete/dbactivity/internal/header/base"
 )
 
 type CPU struct {

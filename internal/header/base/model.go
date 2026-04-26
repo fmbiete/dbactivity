@@ -2,7 +2,7 @@ package base
 
 import (
 	"charm.land/lipgloss/v2"
-	"github.com/fmbiete/db_activity/internal/styles"
+	"github.com/fmbiete/dbactivity/internal/styles"
 )
 
 const WIDTH_LABEL = 12

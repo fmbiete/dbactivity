@@ -1,12 +1,12 @@
 package header
 
 import (
-	"github.com/fmbiete/db_activity/internal/header/cpu"
-	"github.com/fmbiete/db_activity/internal/header/db"
-	"github.com/fmbiete/db_activity/internal/header/db/activity"
-	"github.com/fmbiete/db_activity/internal/header/db/pool"
-	"github.com/fmbiete/db_activity/internal/header/ionet"
-	"github.com/fmbiete/db_activity/internal/header/ram"
+	"github.com/fmbiete/dbactivity/internal/header/cpu"
+	"github.com/fmbiete/dbactivity/internal/header/db"
+	"github.com/fmbiete/dbactivity/internal/header/db/activity"
+	"github.com/fmbiete/dbactivity/internal/header/db/pool"
+	"github.com/fmbiete/dbactivity/internal/header/ionet"
+	"github.com/fmbiete/dbactivity/internal/header/ram"
 )
 
 type Header struct {

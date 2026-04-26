@@ -3,9 +3,9 @@ package internal
 import (
 	"time"
 
-	"github.com/fmbiete/db_activity/internal/confirm"
-	"github.com/fmbiete/db_activity/internal/header"
-	"github.com/fmbiete/db_activity/internal/table"
+	"github.com/fmbiete/dbactivity/internal/confirm"
+	"github.com/fmbiete/dbactivity/internal/header"
+	"github.com/fmbiete/dbactivity/internal/table"
 
 	tea "charm.land/bubbletea/v2"
 )

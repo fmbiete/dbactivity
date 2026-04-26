@@ -1,4 +1,4 @@
-module github.com/fmbiete/db_activity
+module github.com/fmbiete/dbactivity
 
 go 1.26.1
 

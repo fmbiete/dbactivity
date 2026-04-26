@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"charm.land/bubbles/v2/table"
-	"github.com/fmbiete/db_activity/internal/header/db/postgresql"
+	"github.com/fmbiete/dbactivity/internal/header/db/postgresql"
 )
 
 func (t *Table) Gather() {
