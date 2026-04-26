@@ -11,6 +11,7 @@ import (
 
 type Header struct {
 	dbStats  database.Stats
+	dbType   database.DatabaseType
 	activity *activity.Activity
 	cpu      *cpu.CPU
 	ionet    *ionet.IONET
@@ -18,8 +19,9 @@ type Header struct {
 	ram      *ram.RAM
 }
 
-func NewHeader() *Header {
+func NewHeader(dbType database.DatabaseType) *Header {
 	return &Header{
+		dbType:   dbType,
 		activity: activity.NewActivity(),
 		cpu:      cpu.NewCPU(),
 		ionet:    ionet.NewIONET(),

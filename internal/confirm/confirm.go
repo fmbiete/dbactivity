@@ -1,6 +1,8 @@
 package confirm
 
-import "charm.land/huh/v2"
+import (
+	"charm.land/huh/v2"
+)
 
 type ConfirmState int
 

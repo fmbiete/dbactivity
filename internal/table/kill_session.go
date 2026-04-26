@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/fmbiete/dbactivity/internal/collector/database/postgresql"
+	"github.com/fmbiete/dbactivity/internal/collector/database/abstract"
 )
 
 func (t *Table) KillSession() error {
@@ -17,15 +17,21 @@ func (t *Table) KillSession() error {
 		return err
 	}
 
+	db, err := abstract.GetDatabase(t.dbType)
+	if err != nil {
+		log.Println("Failed database type object retrieval", err)
+		return err
+	}
+
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	if err := postgresql.DB.Connect(ctx); err != nil {
+	if err := db.Connect(ctx); err != nil {
 		return err
 	}
-	defer postgresql.DB.Close()
+	// don't defer Close (pool)
 
-	if err := postgresql.DB.KillSession(ctx, pid); err != nil {
+	if err := db.KillSession(ctx, pid); err != nil {
 		return err
 	}
 

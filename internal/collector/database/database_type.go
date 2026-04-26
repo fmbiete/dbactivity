@@ -14,6 +14,8 @@ const (
 	PostgreSQL
 )
 
+var ImplementedDatabases = []DatabaseType{MySQL, PostgreSQL}
+
 // String defines how the value is displayed (required for flag.Value)
 func (d *DatabaseType) String() string {
 	switch *d {

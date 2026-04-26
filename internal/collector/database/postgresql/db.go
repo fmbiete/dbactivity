@@ -1,18 +1,15 @@
 package postgresql
 
 import (
-	"database/sql"
-
-	"github.com/fmbiete/dbactivity/internal/collector/os"
+	"github.com/fmbiete/dbactivity/internal/collector/database/base"
 )
 
 type PostgreSQL struct {
-	*sql.DB
-	processes map[int]*os.ProcMetrics
+	*base.Base
 }
 
 func NewPostgreSQL() *PostgreSQL {
 	return &PostgreSQL{
-		processes: make(map[int]*os.ProcMetrics),
+		Base: base.NewBase(),
 	}
 }

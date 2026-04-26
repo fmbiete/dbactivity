@@ -5,9 +5,9 @@ import (
 	"log"
 )
 
-func (p *PostgreSQL) KillSession(ctx context.Context, pid int64) error {
-	if _, err := p.ExecContext(ctx, `SELECT pg_terminate_backend($1)`, pid); err != nil {
-		log.Println("Error executing query:", err)
+func (o *PostgreSQL) KillSession(ctx context.Context, pid int64) error {
+	if _, err := o.ExecContext(ctx, `SELECT pg_terminate_backend($1)`, pid); err != nil {
+		log.Println("Error terminating session:", err)
 		return err
 	}
 

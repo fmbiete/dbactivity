@@ -38,8 +38,8 @@ func NewTui(dbType database.DatabaseType) *Tui {
 		dbType:      dbType,
 		state:       stateMain,
 		refresh:     true,
-		header:      header.NewHeader(),
-		mainTable:   table.NewTable(),
+		header:      header.NewHeader(dbType),
+		mainTable:   table.NewTable(dbType),
 		confirmForm: confirm.NewConfirm(),
 	}
 }

@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"log"
+	"slices"
 
 	"github.com/fmbiete/dbactivity/internal"
 	"github.com/fmbiete/dbactivity/internal/collector/database"
@@ -19,7 +20,7 @@ func main() {
 
 	flag.Parse()
 
-	if db != database.PostgreSQL {
+	if !slices.Contains(database.ImplementedDatabases, db) {
 		log.Println("Unsupported database type:", db.String())
 		return
 	}

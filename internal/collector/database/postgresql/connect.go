@@ -8,20 +8,20 @@ import (
 	_ "github.com/jackc/pgx/v5/stdlib"
 )
 
-func (p *PostgreSQL) Connect(ctx context.Context) error {
-	if p.DB == nil {
-		return p.open()
+func (o *PostgreSQL) Connect(ctx context.Context) error {
+	if o.DB == nil {
+		return o.open()
 	}
 
-	if err := p.DB.PingContext(ctx); err != nil {
+	if err := o.DB.PingContext(ctx); err != nil {
 		// DB is closed or broken → recreate it
-		return p.open()
+		return o.open()
 	}
 
 	return nil
 }
 
-func (p *PostgreSQL) open() error {
+func (o *PostgreSQL) open() error {
 	db, err := sql.Open("pgx", "postgres://postgres@127.0.0.1:5432/postgres")
 	if err != nil {
 		return err
@@ -30,6 +30,6 @@ func (p *PostgreSQL) open() error {
 	db.SetMaxIdleConns(1)
 	db.SetConnMaxLifetime(1 * time.Hour)
 
-	p.DB = db
+	o.DB = db
 	return nil
 }

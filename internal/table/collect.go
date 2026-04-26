@@ -2,28 +2,28 @@ package table
 
 import (
 	"context"
+	"log"
 	"time"
 
 	"charm.land/bubbles/v2/table"
-	"github.com/fmbiete/dbactivity/internal/collector/database"
-	"github.com/fmbiete/dbactivity/internal/collector/database/postgresql"
+	"github.com/fmbiete/dbactivity/internal/collector/database/abstract"
 )
 
-func (t *Table) Collect(dbType database.DatabaseType) {
+func (t *Table) Collect() error {
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	defer cancel()
 
-	var data [][]string
-	var err error
-
-	switch dbType {
-	case database.PostgreSQL:
-		data, err = postgresql.DB.CollectSessionsNonIdle(ctx)
-		// TODO: others
+	db, err := abstract.GetDatabase(t.dbType)
+	if err != nil {
+		log.Println("Failed database type object retrieval", err)
+		t.table.SetRows([]table.Row{})
+		return err
 	}
+
+	data, err := db.CollectSessionsNonIdle(ctx)
 	if err != nil {
 		t.table.SetRows([]table.Row{})
-		return
+		return err
 	}
 
 	rows := make([]table.Row, len(data))
@@ -32,4 +32,6 @@ func (t *Table) Collect(dbType database.DatabaseType) {
 		rows[i] = table.Row(r)
 	}
 	t.table.SetRows(rows)
+
+	return nil
 }

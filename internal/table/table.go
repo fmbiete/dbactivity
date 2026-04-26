@@ -4,16 +4,20 @@ import (
 	"charm.land/bubbles/v2/table"
 	tea_table "charm.land/bubbles/v2/table"
 	"charm.land/lipgloss/v2"
+	"github.com/fmbiete/dbactivity/internal/collector/database"
 	"github.com/fmbiete/dbactivity/internal/styles"
 )
 
 type Table struct {
 	table    tea_table.Model
 	selected tea_table.Row
+	dbType   database.DatabaseType
 }
 
-func NewTable() *Table {
-	t := Table{}
+func NewTable(dbType database.DatabaseType) *Table {
+	t := Table{
+		dbType: dbType,
+	}
 
 	columns := []tea_table.Column{
 		{Title: "PID", Width: 6},
