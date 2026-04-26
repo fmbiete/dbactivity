@@ -5,12 +5,15 @@ go 1.26.1
 require (
 	charm.land/bubbles/v2 v2.1.0
 	charm.land/bubbletea/v2 v2.0.6
+	charm.land/huh/v2 v2.0.3
 	charm.land/lipgloss/v2 v2.0.3
+	github.com/dolmen-go/mylogin v1.1.0
+	github.com/go-sql-driver/mysql v1.9.3
 	github.com/jackc/pgx/v5 v5.9.2
 )
 
 require (
-	charm.land/huh/v2 v2.0.3 // indirect
+	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/atotto/clipboard v0.1.4 // indirect
 	github.com/catppuccin/go v0.2.0 // indirect
 	github.com/charmbracelet/colorprofile v0.4.3 // indirect
