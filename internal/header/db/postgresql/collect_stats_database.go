@@ -9,7 +9,7 @@ import (
 	"github.com/fmbiete/dbactivity/internal/header/db"
 )
 
-func (p *PostgreSQL) StatsDatabase(ctx context.Context, stats *db.Stats) error {
+func (p *PostgreSQL) CollectStatsDatabase(ctx context.Context, stats *db.Stats) error {
 	rows, err := p.QueryContext(ctx, `SELECT
 		SUM(xact_commit) AS total_commits,
 		SUM(xact_rollback) AS total_rollbacks,

@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func (r *RAM) Data() {
+func (r *RAM) Collect() {
 	file, err := os.Open("/proc/meminfo")
 	if err != nil {
 		log.Println("Error opening /proc/meminfo:", err)

@@ -8,7 +8,7 @@ import (
 	"github.com/fmbiete/dbactivity/internal/footer"
 )
 
-func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+func (m Tui) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.KeyPressMsg:
 		switch msg.String() {
@@ -50,7 +50,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		case tickMsg:
 			// adaptative ticker: 5x last gather duration
 			start := time.Now()
-			m.gatherData()
+			m.collect()
 			gatherDuration := time.Since(start)
 			return m, tick(gatherDuration * 5)
 		case tea.MouseWheelMsg:

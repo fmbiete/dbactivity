@@ -6,7 +6,7 @@ import (
 	"github.com/fmbiete/dbactivity/internal/footer"
 )
 
-func (m Model) View() tea.View {
+func (m Tui) View() tea.View {
 	var output string
 
 	switch m.state {

@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-func (i *IO) Data() {
+func (i *IO) Collect() {
 	file, err := os.Open("/proc/diskstats")
 	if err != nil {
 		log.Println("Error opening /proc/diskstats:", err)

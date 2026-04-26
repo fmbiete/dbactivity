@@ -20,7 +20,7 @@ type ProcMetrics struct {
 	lastIOW    int64
 }
 
-func GetProcessMetrics(pid int, metrics *ProcMetrics) error {
+func CollectMetricsByProcess(pid int, metrics *ProcMetrics) error {
 	// Current Memory (Instantaneous)
 	memRSS, err := getMemoryRSS(pid)
 	if err != nil {

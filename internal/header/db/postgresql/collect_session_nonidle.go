@@ -11,7 +11,7 @@ import (
 	"github.com/fmbiete/dbactivity/internal/header/db/os"
 )
 
-func (p *PostgreSQL) SessionsNonIdle(ctx context.Context) ([][]string, error) {
+func (p *PostgreSQL) CollectSessionsNonIdle(ctx context.Context) ([][]string, error) {
 	rows, err := p.QueryContext(ctx, `/* DB_ACTIVITY */ 
 		WITH temp_files AS (
 				-- Get current temp files and extract the PID from the filename (pgsql_tmpPID.seq)
@@ -72,7 +72,7 @@ func (p *PostgreSQL) SessionsNonIdle(ctx context.Context) ([][]string, error) {
 				WriteRate:  -1,
 			}
 		}
-		if err := os.GetProcessMetrics(pid, metrics); err != nil {
+		if err := os.CollectMetricsByProcess(pid, metrics); err != nil {
 			log.Println("Error getting process metrics:", err)
 		}
 		p.processes[pid] = metrics

@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/fmbiete/dbactivity/internal/confirm"
+	"github.com/fmbiete/dbactivity/internal/database"
 	"github.com/fmbiete/dbactivity/internal/header"
 	"github.com/fmbiete/dbactivity/internal/table"
 
@@ -21,26 +22,28 @@ const (
 	stateConfirmKill
 )
 
-type Model struct {
-	mainTable   *table.Table
+type Tui struct {
+	dbType      database.DatabaseType
 	state       state
-	confirmForm *confirm.Confirm
 	refresh     bool
 	width       int
 	height      int
 	header      *header.Header
+	mainTable   *table.Table
+	confirmForm *confirm.Confirm
 }
 
-func NewModel() *Model {
-	return &Model{
-		refresh:     true,
+func NewTui(dbType database.DatabaseType) *Tui {
+	return &Tui{
+		dbType:      dbType,
 		state:       stateMain,
+		refresh:     true,
 		header:      header.NewHeader(),
 		mainTable:   table.NewTable(),
 		confirmForm: confirm.NewConfirm(),
 	}
 }
 
-func (m Model) Init() tea.Cmd {
+func (m Tui) Init() tea.Cmd {
 	return tick(1 * time.Second)
 }

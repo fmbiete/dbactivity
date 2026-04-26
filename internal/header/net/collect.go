@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-func (n *NET) Data() {
+func (n *NET) Collect() {
 	file, err := os.Open("/proc/net/dev")
 	if err != nil {
 		log.Println("Error opening /proc/net/dev:", err)

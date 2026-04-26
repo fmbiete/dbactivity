@@ -5,14 +5,22 @@ import (
 	"time"
 
 	"charm.land/bubbles/v2/table"
+	"github.com/fmbiete/dbactivity/internal/database"
 	"github.com/fmbiete/dbactivity/internal/header/db/postgresql"
 )
 
-func (t *Table) Gather() {
+func (t *Table) Collect(dbType database.DatabaseType) {
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	defer cancel()
 
-	data, err := postgresql.DB.SessionsNonIdle(ctx)
+	var data [][]string
+	var err error
+
+	switch dbType {
+	case database.PostgreSQL:
+		data, err = postgresql.DB.CollectSessionsNonIdle(ctx)
+		// TODO: others
+	}
 	if err != nil {
 		t.table.SetRows([]table.Row{})
 		return

@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-func (c *CPU) Data() {
+func (c *CPU) Collect() {
 	// 1. Get Core Count
 	cores := float64(runtime.NumCPU())
 
