@@ -3,8 +3,8 @@ package internal
 import (
 	"time"
 
+	"github.com/fmbiete/dbactivity/internal/collector/database"
 	"github.com/fmbiete/dbactivity/internal/confirm"
-	"github.com/fmbiete/dbactivity/internal/database"
 	"github.com/fmbiete/dbactivity/internal/header"
 	"github.com/fmbiete/dbactivity/internal/table"
 

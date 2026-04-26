@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/fmbiete/dbactivity/internal"
-	"github.com/fmbiete/dbactivity/internal/database"
+	"github.com/fmbiete/dbactivity/internal/collector/database"
 	"github.com/fmbiete/dbactivity/internal/logger"
 
 	tea "charm.land/bubbletea/v2"

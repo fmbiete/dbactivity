@@ -4,10 +4,10 @@ import (
 	"fmt"
 
 	"charm.land/lipgloss/v2"
-	"github.com/fmbiete/dbactivity/internal/header/db"
+	"github.com/fmbiete/dbactivity/internal/collector/database"
 )
 
-func (p *POOL) Render(stats db.Stats) string {
+func (p *POOL) Render(stats database.Stats) string {
 	rows := []string{
 		lipgloss.JoinHorizontal(lipgloss.Top, p.LabelStyle.Render("Blocked"), p.ValStyle.Render(fmt.Sprintf("%4d", stats.ConnBlocked))),
 		lipgloss.JoinHorizontal(lipgloss.Top, p.LabelStyle.Render("Active"), p.ValStyle.Render(fmt.Sprintf("%4d", stats.ConnActive))),

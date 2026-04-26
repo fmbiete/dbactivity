@@ -5,10 +5,10 @@ import (
 	"database/sql"
 	"log"
 
-	"github.com/fmbiete/dbactivity/internal/header/db"
+	"github.com/fmbiete/dbactivity/internal/collector/database"
 )
 
-func (p *PostgreSQL) CollectStatsPool(ctx context.Context, stats *db.Stats) error {
+func (p *PostgreSQL) CollectStatsPool(ctx context.Context, stats *database.Stats) error {
 	{
 		rows, err := p.QueryContext(ctx, `SELECT COUNT(*), state
 		FROM pg_stat_activity

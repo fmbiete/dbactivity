@@ -6,10 +6,10 @@ import (
 	"math"
 	"time"
 
-	"github.com/fmbiete/dbactivity/internal/header/db"
+	"github.com/fmbiete/dbactivity/internal/collector/database"
 )
 
-func (p *PostgreSQL) CollectStatsDatabase(ctx context.Context, stats *db.Stats) error {
+func (p *PostgreSQL) CollectStatsDatabase(ctx context.Context, stats *database.Stats) error {
 	rows, err := p.QueryContext(ctx, `SELECT
 		SUM(xact_commit) AS total_commits,
 		SUM(xact_rollback) AS total_rollbacks,

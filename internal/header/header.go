@@ -1,8 +1,8 @@
 package header
 
 import (
+	"github.com/fmbiete/dbactivity/internal/collector/database"
 	"github.com/fmbiete/dbactivity/internal/header/cpu"
-	"github.com/fmbiete/dbactivity/internal/header/db"
 	"github.com/fmbiete/dbactivity/internal/header/db/activity"
 	"github.com/fmbiete/dbactivity/internal/header/db/pool"
 	"github.com/fmbiete/dbactivity/internal/header/ionet"
@@ -10,9 +10,9 @@ import (
 )
 
 type Header struct {
+	dbStats  database.Stats
 	activity *activity.Activity
 	cpu      *cpu.CPU
-	dbStats  db.Stats
 	ionet    *ionet.IONET
 	pool     *pool.POOL
 	ram      *ram.RAM

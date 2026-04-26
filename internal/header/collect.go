@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/fmbiete/dbactivity/internal/database"
-	"github.com/fmbiete/dbactivity/internal/header/db/postgresql"
+	"github.com/fmbiete/dbactivity/internal/collector/database"
+	"github.com/fmbiete/dbactivity/internal/collector/database/postgresql"
 )
 
 func (h *Header) Collect(dbType database.DatabaseType) {

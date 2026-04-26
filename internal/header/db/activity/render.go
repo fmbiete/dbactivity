@@ -4,10 +4,10 @@ import (
 	"fmt"
 
 	"charm.land/lipgloss/v2"
-	"github.com/fmbiete/dbactivity/internal/header/db"
+	"github.com/fmbiete/dbactivity/internal/collector/database"
 )
 
-func (a *Activity) Render(stats db.Stats) string {
+func (a *Activity) Render(stats database.Stats) string {
 	rows := []string{
 		lipgloss.JoinHorizontal(lipgloss.Top, a.LabelStyle.Render("Active Time/ms"), a.ValStyle.Render(fmt.Sprintf("%9.2f", stats.ActiveTime))),
 		lipgloss.JoinHorizontal(lipgloss.Top, a.LabelStyle.Render("Idle in Tx Time/ms"), a.ValStyle.Render(fmt.Sprintf("%9.2f", stats.IdleInTransactionTime))),

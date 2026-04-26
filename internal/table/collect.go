@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"charm.land/bubbles/v2/table"
-	"github.com/fmbiete/dbactivity/internal/database"
-	"github.com/fmbiete/dbactivity/internal/header/db/postgresql"
+	"github.com/fmbiete/dbactivity/internal/collector/database"
+	"github.com/fmbiete/dbactivity/internal/collector/database/postgresql"
 )
 
 func (t *Table) Collect(dbType database.DatabaseType) {
