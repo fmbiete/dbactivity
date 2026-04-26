@@ -1,7 +1,8 @@
 package main
 
 import (
-	"fmt"
+	"flag"
+	"log"
 
 	"github.com/fmbiete/dbactivity/internal"
 	"github.com/fmbiete/dbactivity/internal/logger"
@@ -10,11 +11,17 @@ import (
 )
 
 func main() {
-	logger.Log = logger.NewLogger("debug.log")
+	verbose := flag.Bool("debug", false, "enable debug logging to file in /tmp/dbactivity...")
+	flag.Parse()
+
+	logger.Log = logger.NewLogger(*verbose)
 	defer logger.Log.Close()
+
+	log.Println("Starting dbactivity...")
+	defer log.Println("Shutting down dbactivity...")
 
 	p := tea.NewProgram(internal.NewModel())
 	if _, err := p.Run(); err != nil {
-		fmt.Printf("Error: %v", err)
+		log.Println("Error running program:", err)
 	}
 }

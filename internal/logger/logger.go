@@ -1,6 +1,7 @@
 package logger
 
 import (
+	"io"
 	"log"
 	"os"
 )
@@ -9,19 +10,23 @@ type Logger struct {
 	*os.File
 }
 
-func NewLogger(filepath string) *Logger {
-	var err error
+func NewLogger(logToFile bool) *Logger {
 	l := &Logger{}
-	l.File, err = os.OpenFile("debug.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0640)
-	if err != nil {
-		return nil
+	var err error
+
+	if logToFile {
+		l.File, err = os.CreateTemp("/tmp", "dbactivity")
+		if err != nil {
+			log.Fatal("Failed to create log file:", err)
+			return nil
+		}
+		log.SetOutput(l.File)
+	} else {
+		log.SetOutput(io.Discard)
 	}
 
-	// Set the standard log package to write to this file instead of the screen
-	log.SetOutput(l.File)
-
-	// Optional: customize flags (date, time, file name)
-	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
+	// Customize flags (date, time, file name)
+	log.SetFlags(log.Ldate | log.Ltime | log.Lmicroseconds | log.Llongfile)
 
 	return l
 }
